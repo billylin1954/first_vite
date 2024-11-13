@@ -12,7 +12,7 @@ const PORT = 3000;
 
 
 app.use(json());
-app.post('/api/data', (req, res) => {
+app.post("https://ramen-iva0.onrender.com/", (req, res) => {
   const receivedData = req.body;
   console.log('Data received from frontend:', receivedData);
   async function run() {
