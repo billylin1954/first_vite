@@ -56,14 +56,29 @@ function resetClicks() {
     document.getElementById("ramen_count").innerHTML = clicks;
     console.log("Clicks reset to 0.");
 }
+function auth(){
+    datatosend.user=document.getElementById("username").value
+    datatosend.password=document.getElementById("password").value
+    fetch('http://localhost:3000/api/data', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(datatosend),
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log('Response from server:', data);
+    })
+    .catch(error => {
+        console.error('Error sending data:', error);
+    });
+}
 
 
 function send_data(){
-    if((document.getElementById("username").value && document.getElementById("password"))!= null){
-        datatosend.user=document.getElementById("username").value
-        datatosend.password=document.getElementById("password").value
+  
     
-    }
     // Send the data using a POST request
     fetch('http://localhost:3000/api/data', {
         method: 'POST',
@@ -82,7 +97,10 @@ function send_data(){
 }
 function update() {
     clicks += ramenRate;
-    document.getElementById("ramen_count").innerHTML = clicks;
+    if(document.getElementById("count").innerHTML=="ramen count:"){
+
+        document.getElementById("ramen_count").innerHTML = clicks ;
+    }
     saveClicks();
     console.log("Clicks updated with ramen rate:", clicks);
     if(ramenRate!=0){
