@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>ramen clicker</title>
+</head>
+
+<body >
+  
+  <script  src="db.js" type="module"></script>
+  <script  src="app.js" ></script>
+  
+  <div id="app">
+    <h1>Ramen clicker</h1>
+    <br>
+    <h1>ramen count:</h1>
+    <br>
+    <h1 id="ramen_count"></h1>
+    <img id="ramen" src="ramen.png" alt="ramen" onclick="clicker()">
+    <button onclick="click()" >press</button>
+    <button onclick="remove()">reset</button>
+  </div>
+  <div id="upgrades">
+    <button><img src="novice.png" alt="" class="upgrades" onclick="increaseRate()"> </button>
+    <br>novice<br>100 ramen
+  </div>
+</body>
+
+</html>
