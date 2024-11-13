@@ -6,19 +6,22 @@ function loadClicks() {
     const savedClicks = localStorage.getItem("clicks");
     const ramenrate= localStorage.getItem("ramenRate")
     clicks = savedClicks ? JSON.parse(savedClicks) : 0;
+    console.log(clicks)
     ramenRate = ramenrate ? JSON.parse(ramenrate) : 0;
-    document.getElementById("ramen_count").innerHTML = clicks;
+    document.getElementById("ramen_count").innerHTML=clicks;
 }
-let dataToSend = {
+let datatosend = {
    ramenRate:ramenRate,
-   clicks:clicks
+   clicks:clicks,
+    user:"",
+    password:""
   };
 
 // Save current clicks count to localStorage
 function saveClicks() {
     localStorage.setItem("clicks", JSON.stringify(clicks));
     localStorage.setItem("ramenRate", JSON.stringify(ramenRate));
-    dataToSend.clicks=clicks;
+    datatosend.clicks=clicks;
     console.log("Clicks saved:", clicks);
 }
 
@@ -56,14 +59,18 @@ function resetClicks() {
 
 
 function send_data(){
+    if((document.getElementById("username").value && document.getElementById("password"))!= null){
+        datatosend.user=document.getElementById("username").value
+        datatosend.password=document.getElementById("password").value
     
+    }
     // Send the data using a POST request
     fetch('http://localhost:3000/api/data', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify(dataToSend),
+        body: JSON.stringify(datatosend),
     })
     .then(response => response.json())
     .then(data => {
