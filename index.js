@@ -40,6 +40,7 @@ app.post('/api/data', (req, res) => {
       console.log("Connection closed.");
     }
   }
+  run()
   res.json({ message: 'Data received successfully', data: receivedData });
 });
 
