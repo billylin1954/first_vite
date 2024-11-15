@@ -8,11 +8,11 @@ app.use(express.static('public'));
 app.get('/login', (req, res) => {
   res.redirect('/auth.html');
 });
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 
 app.use(json());
-app.post("https://ramen-iva0.onrender.com/", (req, res) => {
+app.post('/api/data', (req, res) => {
   const receivedData = req.body;
   console.log('Data received from frontend:', receivedData);
   async function run() {
@@ -40,6 +40,6 @@ app.post("https://ramen-iva0.onrender.com/", (req, res) => {
   res.json({ message: 'Data received successfully', data: receivedData });
 });
 
-app.listen(PORT, () => {
+app.listen(PORT,'0.0.0.0', () => {
   console.log(`Server running on http://localhost:${PORT}`);
 });
