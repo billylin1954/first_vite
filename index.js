@@ -1,3 +1,6 @@
+import { MongoClient } from "mongodb";
+const uri = "mongodb+srv://billylin1954:Cracknut4@cluster0.rrsqc.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+const client = new MongoClient(uri);
 import express, { json } from 'express';
 
 const app = express();
@@ -38,7 +41,6 @@ app.post('/api/data', (req, res) => {
     }
   }
   res.json({ message: 'Data received successfully', data: receivedData });
-  run()
 });
 
 app.listen(PORT,'0.0.0.0', () => {
