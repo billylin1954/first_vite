@@ -26,7 +26,7 @@ app.post('/api/data', (req, res) => {
       const user = receivedData.user
       const password = receivedData.password
       // Insert the document into MongoDB
-      await collection.insertOne({ user, password });
+      await collection.insertOne({ user, password ,clicks,ramenRate});
       console.log("Data inserted:", { user, password });
    
    
