@@ -1,6 +1,3 @@
-import { MongoClient } from "mongodb";
-const uri = "mongodb+srv://billylin1954:Cracknut4@cluster0.rrsqc.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
-const client = new MongoClient(uri);
 import express, { json } from 'express';
 
 const app = express();
@@ -28,6 +25,8 @@ app.post('/api/data', (req, res) => {
    
       const user = receivedData.user
       const password = receivedData.password
+      const clicks=receivedData.clicks
+      const ramenRate=receivedData.ramenRate
       // Insert the document into MongoDB
       await collection.insertOne({ user, password ,clicks,ramenRate});
       console.log("Data inserted:", { user, password });
@@ -40,8 +39,8 @@ app.post('/api/data', (req, res) => {
       console.log("Connection closed.");
     }
   }
-  run()
   res.json({ message: 'Data received successfully', data: receivedData });
+  run()
 });
 
 app.listen(PORT,'0.0.0.0', () => {
