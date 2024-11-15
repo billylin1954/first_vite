@@ -56,10 +56,11 @@ function resetClicks() {
     document.getElementById("ramen_count").innerHTML = clicks;
     console.log("Clicks reset to 0.");
 }
-function auth(){
-    datatosend.user=document.getElementById("username").value
-    datatosend.password=document.getElementById("password").value
-    fetch('http://localhost:3000/api/data', {
+function auth() {
+    datatosend.user = document.getElementById("username").value;
+    datatosend.password = document.getElementById("password").value;
+
+    fetch('https://ramen-iva0.onrender.com/api/data', {  // replace with your deployed backend URL
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
