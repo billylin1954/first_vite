@@ -26,7 +26,7 @@ app.post('/api/data', (req, res) => {
       const database = client.db('billCo');
       const collection = database.collection('stuff');
       const clicks=receivedData.clicks
-      const user = receiveddata.user
+      const user = receivedData.user
       const password = receivedData.password
       const ramenRate=receivedData.ramenRate
       // Insert the document into MongoDB
