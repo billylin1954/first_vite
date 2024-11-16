@@ -17,6 +17,7 @@ const PORT = process.env.PORT || 3000;
 app.use(json());
 app.post('/api/data', (req, res) => {
   const receivedData = req.body;
+  run()
   console.log('Data received from frontend:', receivedData);
   async function run() {
     try {
