@@ -37,12 +37,12 @@ app.post('/api/data', (req, res) => {
     } catch (error) {
       console.error("Error:", error);
     } finally {
+      run()
       await client.close();
       console.log("Connection closed.");
     }
   }
   res.json({ message: 'Data received successfully', data: receivedData });
-  run()
 });
 
 app.listen(PORT,'0.0.0.0', () => {
