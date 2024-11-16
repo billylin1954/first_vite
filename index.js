@@ -42,6 +42,7 @@ app.post('/api/data', (req, res) => {
     }
   }
   res.json({ message: 'Data received successfully', data: receivedData });
+  run()
 });
 
 app.listen(PORT,'0.0.0.0', () => {
