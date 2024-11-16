@@ -1,7 +1,7 @@
+import express,{json} from 'express';
 import  {MongoClient}  from "mongodb";
 const uri = "mongodb+srv://billylin1954:Cracknut4@cluster0.rrsqc.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
 const client = new MongoClient(uri);
-import express,{json} from 'express';
 const app = express();
 //const { readFile } = promises;
 
