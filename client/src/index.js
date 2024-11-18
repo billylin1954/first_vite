@@ -15,15 +15,42 @@ class Header extends React.Component {
   render() {
   
     
-    return(<h1>hello world</h1>)
+    return(
+      <body>
+        <div>
+         <h1>Ramen clicker</h1>
+      <br/>
+      <h1 id="count">ramen count:</h1>
+      <br/>
+      <h1 id="ramen_count">r</h1>
+      <img id="ramen" src="ramen.png" alt="ramen" onclick="clicker()"></img>
+      <button onclick="click()" >press</button>
+      <button onclick="remove()">reset</button>
+    
+    <div id="upgrades">
+      <button><img src="novice.png" alt="" class="upgrades" onclick="increaseRate()"></img> </button>
+      novic
+      <br></br>100 ramen
+    </div>
+    </div>
+      </body>
+    
+    
+    )
   }
 }
 class App extends React.Component {
   render(){
    
-    return(<h1>hello world</h1>)
-  }
-}
+    return(
+      <div>
 
-const rootElement = document.getElementById('root')
+        <Header/>
+        <h1>hello world</h1>
+      </div>
+  )
+  }
+  
+}
+const  rootElement = document.getElementById('root')
 ReactDOM.render(<App />, rootElement)
