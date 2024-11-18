@@ -1,4 +1,5 @@
 import React from 'react'
+import { useState } from 'react';
 import ReactDOM from 'react-dom'
 import ramen from './img/ramen.png'
 import novice from './img/novice.png'
