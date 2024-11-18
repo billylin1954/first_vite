@@ -1,5 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import ramen from './img/ramen.png'
+import novice from './img/novice.png'
 var clicks = 0;
 var ramenRate = 0;
 
@@ -23,12 +25,12 @@ class Header extends React.Component {
       <h1 id="count">ramen count:</h1>
       <br/>
       <h1 id="ramen_count">r</h1>
-      <img id="ramen" src="ramen.png" alt="ramen" onclick="clicker()"></img>
+      <img id="ramen" src={ramen}alt="ramen" onclick="clicker()"></img>
       <button onclick="click()" >press</button>
       <button onclick="remove()">reset</button>
     
     <div id="upgrades">
-      <button><img src="novice.png" alt="" class="upgrades" onclick="increaseRate()"></img> </button>
+      <button><img src={novice} alt="" class="upgrades" onclick="increaseRate()"></img> </button>
       novic
       <br></br>100 ramen
     </div>
