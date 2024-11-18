@@ -9,7 +9,7 @@ class Header extends React.Component {
   }
 }
 class App extends React.Component {
-  render(){f
+  render(){
 
     return(<h1>hello world</h1>)
   }
