@@ -9,8 +9,9 @@ const bodystyle={
   textAlign: "center",
 }
 function clicker(){
-  
+
 }
+
 function loadClicks() {
   const savedClicks = localStorage.getItem("clicks");
   const ramenrate= localStorage.getItem("ramenRate")
@@ -19,6 +20,7 @@ function loadClicks() {
   ramenRate = ramenrate ? JSON.parse(ramenrate) : 0;
   document.getElementById("ramen_count").innerHTML=clicks;
 }
+
 document.addEventListener("DOMContentLoaded", loadClicks);
 const sizestyle={
   height:200 ,
