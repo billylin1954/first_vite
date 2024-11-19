@@ -8,6 +8,9 @@ var ramenRate = 0;
 const bodystyle={
   textAlign: "center",
 }
+function clicker(){
+  
+}
 function loadClicks() {
   const savedClicks = localStorage.getItem("clicks");
   const ramenrate= localStorage.getItem("ramenRate")
