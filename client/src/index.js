@@ -1,9 +1,10 @@
 import React from 'react'
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import ReactDOM from 'react-dom/client'
 import ramen from './img/ramen.png'
 import novice from './img/novice.png'
 import './styles.css'
+
 var clicks = 0;
 var ramenRate = 0;
 const bodystyle = {
@@ -14,7 +15,8 @@ function update() {
   clicks += ramenRate;
   document.getElementById("ramen_count").innerHTML = clicks;
   saveClicks();
- 
+  console.log(clicks)
+
 }
 
 // Run the `update` function every 400ms
@@ -28,10 +30,11 @@ function increaseRate() {
 }
 function clicker() {
   clicks += 1;
+  console.log(":(")
   saveClicks();
   console.log(":(")
-  document.getElementById("ramen_count").value = clicks;
-  root.render(<App />);
+  document.getElementById("ramen_count").innerHTML = clicks;
+  // root.render(<App />);
 }
 function saveClicks() {
   localStorage.setItem("clicks", JSON.stringify(clicks));
@@ -43,7 +46,6 @@ function loadClicks() {
   const savedClicks = localStorage.getItem("clicks");
   const ramenrate = localStorage.getItem("ramenRate")
   clicks = savedClicks ? JSON.parse(savedClicks) : 0;
-  console.log(clicks)
   ramenRate = ramenrate ? JSON.parse(ramenrate) : 0;
   // document.getElementById("ramen_count").innerHTML=clicks;
 }
@@ -55,8 +57,9 @@ function smaller() {
   document.getElementById("img").style.height = "200px";
   document.getElementById("img").style.width = "200px";
 }
-document.addEventListener("DOMContentLoaded", loadClicks);
+loadClicks()
 class Header extends React.Component {
+  
   render() {
 
 
@@ -72,10 +75,10 @@ class Header extends React.Component {
         <div style={bodystyle}>
           <h1>Ramen clicker</h1>
 
-          <h1 id="count" >ramen count</h1>
+          <h1 id="count" value={clicks}>ramen count</h1>
 
-          <h1 id="ramen_count">r</h1>
-          <img id="img" src={ramen} alt="ramen" value={clicks} onClick={clicker} onMouseDown={bigger} onMouseUp={smaller}></img>
+          <h1 id="ramen_count"></h1>
+          <img id="img" src={ramen} alt="ramen"  onClick={clicker} onMouseDown={bigger} onMouseUp={smaller}></img>
         </div>
 
       </div>
