@@ -10,6 +10,19 @@ const bodystyle={
   textAlign: "center",
  
 }
+function update() {
+  clicks += ramenRate;
+  document.getElementById("ramen_count").innerHTML = clicks;
+  saveClicks();
+  root.render(<App/>);
+  // if(ramenRate!=0){
+
+  //     send_data()
+  // }
+}
+
+// Run the `update` function every 400ms
+setInterval(update, 1000);
 function increaseRate(){
   if(clicks>=100){
     ramenRate+=1;
@@ -26,7 +39,7 @@ function clicker(){
    document.getElementById("ramen_count").value=clicks;
    
    
-   root.render(<App/>);
+  
 
 }
 function saveClicks() {
@@ -67,9 +80,9 @@ class Header extends React.Component {
         </div>
         <div style={bodystyle}>
          <h1>Ramen clicker</h1>
-      <br/>
-      <h1 id="count" >ramen count:{clicks}</h1>
-      <br/>
+      
+      <h1 id="count" >ramen count</h1>
+      
       <h1 id="ramen_count">r</h1>
       <img id="img" src={ramen}alt="ramen" value={clicks}onClick={clicker} onMouseDown={bigger} onMouseUp={smaller}></img>
     </div>
