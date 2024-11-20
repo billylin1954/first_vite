@@ -10,7 +10,13 @@ const bodystyle={
   textAlign: "center",
  
 }
-
+function increaseRate(){
+  if(clicks>=100){
+    ramenRate+=1;
+    clicks-=100;
+  }
+  root.render(<App/>);
+}
 function clicker(){
   
     clicks += 1;
@@ -38,8 +44,12 @@ function loadClicks() {
  // document.getElementById("ramen_count").innerHTML=clicks;
 }
 function bigger(){
-    document.getElementById("img").style.height="300px";
-     document.getElementById("img").style.width="300px";
+    document.getElementById("img").style.height="260px";
+     document.getElementById("img").style.width="260px";
+}
+function smaller(){
+  document.getElementById("img").style.height="200px";
+  document.getElementById("img").style.width="200px";
 }
 document.addEventListener("DOMContentLoaded", loadClicks);
 class Header extends React.Component {
@@ -50,7 +60,7 @@ class Header extends React.Component {
       <div >
         <a href="./styles.css" rel="stylesheet"></a>
         <div id="upgrades">
-          {/* <button><img src={novice} alt="" style={sizestyle} onClick={increaseRate()}></img> </button> */}
+          <button class="novice"><img class="novice"src={novice} alt="" style={bodystyle} onClick={increaseRate()}></img> </button>
           <br></br>
           novice  
           <br></br>100 ramen
@@ -61,7 +71,7 @@ class Header extends React.Component {
       <h1 id="count" >ramen count:{clicks}</h1>
       <br/>
       <h1 id="ramen_count">r</h1>
-      <img id="img" src={ramen}alt="ramen" value={clicks}onClick={clicker} onMouseDown={bigger} onMouseUp={}></img>
+      <img id="img" src={ramen}alt="ramen" value={clicks}onClick={clicker} onMouseDown={bigger} onMouseUp={smaller}></img>
     </div>
       
           </div>
