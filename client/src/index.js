@@ -18,9 +18,11 @@ function update() {
   clicks += ramenRate;
   document.getElementById("ramen_count").innerHTML = clicks;
   saveClicks();
-  console.log(clicks)
+  datatosend.clicks=clicks
+  datatosend.ramenRate=ramenRate
 
 }
+setInterval(send_data,1000/60)
 function send_data(){
     
   // Send the data using a POST request
