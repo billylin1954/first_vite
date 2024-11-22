@@ -21,7 +21,24 @@ function update() {
   console.log(clicks)
 
 }
-
+function send_data(){
+    
+  // Send the data using a POST request
+  fetch('http://localhost:3000/api/data', {
+      method: 'POST',
+      headers: {
+          'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(dataToSend),
+  })
+  .then(response => response.json())
+  .then(data => {
+      console.log('Response from server:', data);
+  })
+  .catch(error => {
+      console.error('Error sending data:', error);
+  });
+}
 // Run the `update` function every 400ms
 setInterval(update, 400);
 function increaseRate() {
