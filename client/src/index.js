@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom/client'
 import ramen from './img/ramen.png'
 import novice from './img/novice.png'
 import './styles.css'
-let dataToSend = {
+let datatosend = {
   ramenRate:ramenRate,
   clicks:clicks
  };
