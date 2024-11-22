@@ -30,11 +30,8 @@ function increaseRate() {
 }
 function clicker() {
   clicks += 1;
-  console.log(":(")
   saveClicks();
-  console.log(":(")
   document.getElementById("ramen_count").innerHTML = clicks;
-  // root.render(<App />);
 }
 function saveClicks() {
   localStorage.setItem("clicks", JSON.stringify(clicks));
