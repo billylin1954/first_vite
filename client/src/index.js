@@ -4,7 +4,10 @@ import ReactDOM from 'react-dom/client'
 import ramen from './img/ramen.png'
 import novice from './img/novice.png'
 import './styles.css'
-
+let dataToSend = {
+  ramenRate:ramenRate,
+  clicks:clicks
+ };
 var clicks = 0;
 var ramenRate = 0;
 const bodystyle = {
