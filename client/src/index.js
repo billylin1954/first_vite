@@ -20,7 +20,7 @@ function update() {
 }
 
 // Run the `update` function every 400ms
-setInterval(update, 1000);
+setInterval(update, 400);
 function increaseRate() {
   if (clicks >= 100) {
     ramenRate += 1;
@@ -54,6 +54,7 @@ function bigger() {
   document.getElementById("img").style.width = "260px";
 }
 function smaller() {
+  
   document.getElementById("img").style.height = "200px";
   document.getElementById("img").style.width = "200px";
 }
@@ -67,7 +68,7 @@ class Header extends React.Component {
       <div >
         <a href="./styles.css" rel="stylesheet"></a>
         <div id="upgrades">
-          <button class="novice"><img class="novice" src={novice} alt="" style={bodystyle} onClick={increaseRate()}></img> </button>
+          <button ><img id="novice" src={novice} alt="" style={bodystyle} onClick={increaseRate}></img> </button>
           <br></br>
           novice
           <br></br>100 ramen
