@@ -26,12 +26,12 @@ setInterval(send_data,1000/60)
 function send_data(){
     
   // Send the data using a POST request
-  fetch('http://localhost:3000/api/data', {
+  fetch('http://localhost:3005/api/data', {
       method: 'POST',
       headers: {
           'Content-Type': 'application/json',
       },
-      body: JSON.stringify(dataToSend),
+      body: JSON.stringify(datatosend),
   })
   .then(response => response.json())
   .then(data => {
