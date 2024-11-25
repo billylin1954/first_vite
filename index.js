@@ -2,12 +2,20 @@ import { MongoClient } from "mongodb";
 const uri = "mongodb+srv://billylin1954:Cracknut4@cluster0.rrsqc.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
 const client = new MongoClient(uri);
 import express, { json } from 'express';
+import path from 'path'
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
 
+function getDirname(importMetaUrl) {
+  const filename = fileURLToPath(importMetaUrl);
+  return dirname(filename);
+}
+const __dirname = getDirname(import.meta.url);
 const app = express();
-app.use(express.static(path.join(__dirname, 'client')));
+app.use(express.static(path.join(__dirname, 'client/public')));
 
 app.get('/', function (req, res) {
-  res.sendFile(path.join(__dirname, 'client', 'index.html'));
+  res.sendFile(path.join(__dirname, 'client/public', 'index.html'));
 });
 
 const PORT = process.env.PORT || 3001;
