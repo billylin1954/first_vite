@@ -22,11 +22,11 @@ function update() {
   datatosend.ramenRate=ramenRate
 
 }
-setInterval(send_data,1000/60)
-function send_data(){
+// setInterval(send_data,1000/60)
+function send_data(){ 
     
   // Send the data using a POST request
-  fetch('http://localhost:3005/api/data', {
+  fetch('/api', {
       method: 'POST',
       headers: {
           'Content-Type': 'application/json',
@@ -60,6 +60,24 @@ function saveClicks() {
   localStorage.setItem("ramenRate", JSON.stringify(ramenRate));
   //dataToSend.clicks=clicks;
   //console.log("Clicks saved:", clicks);
+}
+function A() {
+  const [data, setData] = React.useState(null);
+
+  React.useEffect(() => {
+    fetch("/api")
+      .then((res) => res.json())
+      .then((data) => setData(data.message));
+  }, []);
+
+  return (
+    <div className="App">
+      <header className="App-header">
+        
+        <p>{!data ? "Loading..." : data}</p>
+      </header>
+    </div>
+  );
 }
 function loadClicks() {
   const savedClicks = localStorage.getItem("clicks");
@@ -114,7 +132,7 @@ class App extends React.Component {
       <div>
 
         <Header />
-
+        <A/>
       </div>
     )
   }
