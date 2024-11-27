@@ -37,6 +37,7 @@ app.post('/api', (req, res) => {
     }
   }
   res.json({ message: ':)' });
+  if((receivedData.user && receivedData.password)!="")
   run()
 });
 // app.get("/api", (req, res) => {
