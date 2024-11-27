@@ -27,10 +27,11 @@ function update() {
 function send_data(){ 
     
   // Send the data using a POST request
-  fetch('https://first-vite.onrender.com/apii', {
+  fetch('https://first-vite.onrender.com/api', {
     method: 'POST',
     headers: {
         'Content-Type': 'application/json',
+         'Access-Control-Allow-Origin':'*'
     },
     body: JSON.stringify(datatosend),
 })
