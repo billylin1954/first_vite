@@ -1,9 +1,8 @@
-const {MongoClient} = require( "mongodb");
+import { MongoClient } from "mongodb";
 const uri = "mongodb+srv://billylin1954:Cracknut4@cluster0.rrsqc.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
-const client = new  MongoClient(uri);
-const path = require("path");
-const express = require("express");
-const app = express();
+const client = new MongoClient(uri);
+import express, { json } from 'express';
+import path from 'path'
 // import { fileURLToPath } from 'url';
 // import { dirname } from 'path';
 
@@ -12,16 +11,16 @@ const app = express();
 //   return dirname(filename);
 // }
 // const __dirname = getDirname(import.meta.url);
+const app = express();
+app.use(express.static(path.join(__dirname, "client", "src")));
 
-app.use(express.static(path.join(__dirname, "client/public")));
-
-// app.get('/', function (req, res) {
-//   res.sendFile(path.join(__dirname, 'client','src', 'index.html'));
-// });
+app.get('/', function (req, res) {
+  res.sendFile(path.join(__dirname, 'client','src', 'index.html'));
+});
 
 const PORT = process.env.PORT || 3001;
 
-app.use(express.json());
+app.use(json());
 app.post('/api', (req, res) => {
   const receivedData = req.body;
   console.log('Data received from frontend:', receivedData);

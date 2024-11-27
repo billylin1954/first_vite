@@ -20,7 +20,7 @@ function update() {
   saveClicks();
   datatosend.clicks=clicks
   datatosend.ramenRate=ramenRate
-  //send_data();
+  send_data();
 
 }
 // setInterval(send_data,1000/60)
