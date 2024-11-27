@@ -27,7 +27,7 @@ function update() {
 function send_data(){ 
     
   // Send the data using a POST request
-  fetch('/api', {
+  fetch('https://first-vite.onrender.com/apii', {
     method: 'POST',
     headers: {
         'Content-Type': 'application/json',
