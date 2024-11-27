@@ -4,6 +4,7 @@ const client = new  MongoClient(uri);
 const path = require("path");
 const express = require("express");
 const app = express();
+const cors = require('cors');
 // import { fileURLToPath } from 'url';
 // import { dirname } from 'path';
 
@@ -12,7 +13,7 @@ const app = express();
 //   return dirname(filename);
 // }
 // const __dirname = getDirname(import.meta.url);
-
+app.use(cors())
 app.use(express.static(path.join(__dirname, "client/public")));
 
 // app.get('/', function (req, res) {
