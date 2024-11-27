@@ -6,7 +6,9 @@ import novice from './img/novice.png'
 import './styles.css'
 let datatosend = {
   ramenRate:ramenRate,
-  clicks:clicks
+  clicks:clicks,
+  user:"",
+  password:"",
  };
 var clicks = 0;
 var ramenRate = 0;
@@ -14,12 +16,16 @@ const bodystyle = {
   textAlign: "center",
 
 }
+let user="";
+let password="";
 function update() {
   clicks += ramenRate;
   document.getElementById("ramen_count").innerHTML = clicks;
   saveClicks();
   datatosend.clicks=clicks
   datatosend.ramenRate=ramenRate
+  datatosend.user=user;
+  datatosend.password=password;
   send_data();
 
 }
@@ -125,12 +131,19 @@ class Header extends React.Component {
           <br></br>
           novice
           <br></br>100 ramen
-        </div>
+        </div>   
         <div style={bodystyle}>
           <h1>Ramen clicker</h1>
 
           <h1 id="count" value={clicks}>ramen count</h1>
-
+          <br></br>
+          <h1>user</h1>
+            <br></br>
+            <input value={user}></input>
+            <br></br>
+            <h1>user</h1>
+            <br></br>
+            <input value={password}></input>
           <h1 id="ramen_count"></h1>
           <img id="img" src={ramen} alt="ramen"  onClick={clicker} onMouseDown={bigger} onMouseUp={smaller}></img>
         </div>

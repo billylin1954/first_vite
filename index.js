@@ -2,7 +2,7 @@ import { MongoClient } from "mongodb";
 const uri= process.env.URI;
 const client = new MongoClient(uri);
 import express, { json } from 'express';
-
+const cors = require('cors');
 const app = express();
 
 const PORT = process.env.PORT || 3001;
