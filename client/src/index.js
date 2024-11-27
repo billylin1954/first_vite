@@ -20,26 +20,27 @@ function update() {
   saveClicks();
   datatosend.clicks=clicks
   datatosend.ramenRate=ramenRate
+  send_data();
 
 }
-setInterval(send_data,1000/60)
-function send_data(){
+// setInterval(send_data,1000/60)
+function send_data(){ 
     
   // Send the data using a POST request
-  fetch('http://localhost:3005/api/data', {
-      method: 'POST',
-      headers: {
-          'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(datatosend),
-  })
-  .then(response => response.json())
-  .then(data => {
-      console.log('Response from server:', data);
-  })
-  .catch(error => {
-      console.error('Error sending data:', error);
-  });
+  fetch('/api', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(datatosend),
+})
+.then((res) => res.json())
+.then(data => {
+    console.log('Response from server:', data);
+})
+.catch(error => {
+    console.error('Error sending data:', error)
+});
 }
 // Run the `update` function every 400ms
 setInterval(update, 400);
@@ -60,6 +61,38 @@ function saveClicks() {
   localStorage.setItem("ramenRate", JSON.stringify(ramenRate));
   //dataToSend.clicks=clicks;
   //console.log("Clicks saved:", clicks);
+}
+function A() {
+  const [data, setData] = React.useState(null);
+
+  React.useEffect(() => {
+    
+      fetch('/api', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(datatosend),
+    })
+    .then((res) => res.json())
+    .then((data) => setData(datatosend))
+    .then(response => response.json())
+    .then(data => {
+        console.log('Response from server:', data);
+    })
+    .catch(error => {
+        console.error('Error sending data:', error)
+    });
+  }, []);
+
+  return (
+    <div className="App">
+     
+        
+        <p>o</p>
+  
+    </div>
+  );
 }
 function loadClicks() {
   const savedClicks = localStorage.getItem("clicks");
@@ -114,7 +147,7 @@ class App extends React.Component {
       <div>
 
         <Header />
-
+        <A/>
       </div>
     )
   }
