@@ -101,6 +101,7 @@ function A() {
     </div>
   );
 }
+
 function loadClicks() {
   const savedClicks = localStorage.getItem("clicks");
   const ramenrate = localStorage.getItem("ramenRate")
@@ -126,6 +127,13 @@ class Header extends React.Component {
     return (
       <div >
         <a href="./styles.css" rel="stylesheet"></a>
+          <h1>user</h1>
+            <br></br>
+            <input value={user}></input>
+            <br></br>
+            <h1>password</h1>
+            <br></br>
+            <input value={password}></input>
         <div id="upgrades">
           <button ><img id="novice" src={novice} alt="" style={bodystyle} onClick={increaseRate}></img> </button>
           <br></br>
@@ -137,13 +145,6 @@ class Header extends React.Component {
 
           <h1 id="count" value={clicks}>ramen count</h1>
           <br></br>
-          <h1>user</h1>
-            <br></br>
-            <input value={user}></input>
-            <br></br>
-            <h1>user</h1>
-            <br></br>
-            <input value={password}></input>
           <h1 id="ramen_count"></h1>
           <img id="img" src={ramen} alt="ramen"  onClick={clicker} onMouseDown={bigger} onMouseUp={smaller}></img>
         </div>

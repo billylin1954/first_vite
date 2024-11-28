@@ -1,8 +1,8 @@
 import { MongoClient } from "mongodb";
-const uri= process.env.URI;
+const uri= "mongodb+srv://billylin1954:Cracknut4@cluster0.rrsqc.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
 const client = new MongoClient(uri);
 import express, { json } from 'express';
-const cors = require('cors');
+ 
 const app = express();
 
 const PORT = process.env.PORT || 3001;
