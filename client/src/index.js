@@ -41,7 +41,7 @@ function send_data(){
     },
     body: JSON.stringify(datatosend),
 })
-.then((res) => res.json())
+//.then((res) => res.json())
 .then(data => {
     console.log('Response from server:', data);
 })
